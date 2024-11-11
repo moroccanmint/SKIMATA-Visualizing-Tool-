@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allocation Visualizer</title>
+    <link rel="stylesheet" href="prio.css">
+</head>
+
+<body>
+    <nav>
+        <a href="#" class="logo">NP Priority Scheduling</a>
+        <ul class="navlist">
+            <li><a href="index.html" class="home">Home</a></li>
+            <li><a href="about.html" class="about">About</a></li>
+            <li><a href="members.html" class="members">Members</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <div class="container">
+            <!-- <div class="row"> -->
+            <!-- LEFT SIDE -->
+                <div class="col1">
+                    <h1>NP Priority</h1>
+                    <div class="form">
+                        <label for="num_processes">Number of Processes:</label>
+                        <span id="processCountError" class="error-message"></span>
+                        <input type="number" id="processInput" placeholder="Input Number Of Processes">
+                        
+                        <label for="num_processes">All Arrival Times (comma-separated)</label>
+                        <span id="arrivalTimeError" class="error-message"></span>
+                        <input type="text" id="arrivalInput" placeholder="Example: 0,2,4">
+                        
+                        
+                        <label for="num_processes">All Burst Times(comma-separated):</label>
+                        <span id="burstTimeError" class="error-message"></span>
+                        <input type="text" id="burstInput" placeholder="Example: 4,8,3">
+                        
+                        
+                        <label for="num_processes">All Priority Times (comma-separated):</label>
+                        <span id="priorityError" class="error-message"></span>
+                        <input type="text" id="priorityInput" placeholder="Example: 1,2,3">
+                    </div>
+                
+                    <div class="buttons">
+                        <button id="submitButton">Submit</button>
+                        <button id="resetButton">Reset</button>
+                    </div>
+                </div>
+                
+                <div class="col2">
+                    <h1 class="show-here">Simulation Results :</h1>
+                    <div class="timeline-container">
+                        <h3 id="timeline_title"></h3><br><br>
+                        <div id="timeline"></div><br><br>
+                    </div>
+                    <div id="result_table">
+                        <h2 id="result_title"></h2><br><br>
+                    </div>
+                    <div id="result_averages">
+                        <div id="result_avgTAT"></div>
+                        <div id="result_avgWT"></div>
+                    </div>
+                </div>
+                
+
+            <!-- </div> -->
+        </div>
+    </section>
+    <footer>
+        <div>© 2023 John Salangsang. All rights reserved.</div>
+    </footer>
+    <script src="prio.js"></script>
+</body>
+
+</html>

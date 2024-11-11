@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link rel="stylesheet" href="fifo.css">
+	
+      <title>First In First Out Algorithm</title>
+   </head>
+   <body>
+		<!-- Container -->
+		<div class="container">
+			<!-- Navigation Bar -->
+				<nav>
+					<a href="#" class="nav__logo">ALGORITHM VISUALIZATION</a>
+					<ul class="navlist">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Members</a></li>
+					</ul>
+				</nav>
+			<!-- Box -->
+			<div class="row">
+				<!-- LEFT SIDE -->
+				<div class="col">
+					<h1>FIFO</h1>
+					
+					<!-- User Input -->
+					<form>
+						<div class="user_details">
+							<div class="control-group">
+								<label for="numFrames">Number of Frames:</label>
+								<input type="number" id="numFrames" min="1" value="3">
+							</div>
+
+							<div class="control-group">
+								<label for="pageRequests">Page Requests (comma-separated):</label>
+								<input type="text" id="pageRequests" placeholder="e.g. 1,2,3">
+							</div>
+						</div>
+					</form>
+
+					<!-- Buttons + Note -->
+					<button class="btn" onclick="startSimulation()">Start Simulation</button>
+        			<button class="btn" onclick="resetSimulation()">Reset</button>
+					<h2> Note : Only Numerical Values are Accepted</h2>
+				</div>
+
+				<!-- RIGHT SIDE -->
+				<div class="col2">
+					<!-- Simulation Result Text -->
+					<div id="simulation-results">
+						<h3>Simulation Results</h3>
+						<p class="pagefault">Total Page Faults: <span id="totalFaults">0</span></p>
+					</div>
+				
+					<!-- Frames -->
+					<div id="frames-container"></div>
+
+					<!-- Success and Failure Rate -->
+					<div id="simulation-results">
+						<div id="frames-container"></div>
+						<h5>Success Rate : <span id="successRate">0%</span>  |  Failure Rate : <span id="failureRate">0%</span></h5>
+					</div>
+
+				</div>
+
+			</div>
+			<!-- BOTTOM CRED -->
+			<div class="Copyright">
+				<h6>© 2023 Marc Nacpil. All Rights Reserved</h6>
+			</div>
+		</div>
+     
+      <!--=============== MAIN JS ===============-->
+      <script src="fifo.js"></script>
+   </body>
+</html>
+
+<!-- Code By : Marc Nacpil 2023 -->

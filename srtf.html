@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allocation Visualizer</title>
+    <link rel="stylesheet" href="srtf.css">
+</head>
+
+<body>
+    <nav>
+        <a href="#" class="logo">Allocation Visualizer</a>
+        <ul class="navlist">
+            <li><a href="index.html" class="home">Home</a></li>
+            <li><a href="about.html" class="about">About</a></li>
+            <li><a href="members.html" class="members">Members</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <div class="container">
+            <!-- <div class="row"> -->
+            <!-- LEFT SIDE -->
+            <div class="col">
+                <h1>SRTF</h1>
+            
+                <!-- User Input -->
+                <form id="scheduler-form">
+                        <label for="num_processes">Number of Processes:</label>
+                        <span id="processCountError" class="error-message"></span>
+                        <input type="number" id="num_processes" placeholder="Input Number Of Processes">
+                    
+                        <label for="all_arrival_times">
+                            All Arrival Times (comma-separated):</label>
+                        <span id="arrivalTimeError" class="error-message"></span>
+                        <input type="text" id="all_arrival_times" placeholder="Example: 0,2,4">
+
+                        <label for="all_burst_times">All Burst Times (comma-separated):</label>
+                        <span id="burstTimeError" class="error-message"></span>
+                        <input type="text" id="all_burst_times" placeholder="Example: 4,6,8">
+
+                </form>
+                    <!-- Buttons + Note -->
+                    
+                    <div class="buttons">
+                        <!-- <input class = btn type="button" value="Run Scheduler" onclick="run()"> -->
+                        <button class=btn id="submitBtn" onclick="runScheduler()">Run Scheduler</button>
+                        <button class=btn  onclick="resetScheduler()">Reset</button>
+                    </div>
+            
+            </div>
+            
+            <!-- RIGHT SIDE -->
+            <div class="col2">
+                <div id="simulation-results">
+                    <h3>Simulation Results :</h3>
+                </div>
+            
+                <!-- Simulation Result Text -->
+                <div id="gantt-container"></div>
+                <div id="result-container"></div>
+                <div id="average-container"></div>
+            </div>
+
+            <!-- </div> -->
+        </div>
+    </section>
+    <footer>
+        <div>© 2023 Regine Keele. All rights reserved.</div>
+    </footer>
+    <script src="srtf.js"></script>
+</body>
+
+</html>

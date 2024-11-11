@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allocation Visualizer</title>
+    <link rel="stylesheet" href="fixed.css">
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">Allocation Visualizer</a>
+        <ul class="navlist">
+            <li><a href="index.html" class="home">Home</a></li>
+            <li><a href="about.html" class="about">About</a></li>
+            <li><a href="members.html" class="members">Members</a></li>
+        </ul>
+    </nav>
+    
+    <section>
+        <div class="container">
+            <div class="left">
+                <h1 id="alloc-h1">Fixed Partition</h1>
+                <div class="input-fields-container" id="fieldsContainer">
+                        <form id="inputForm">
+                            <div class="dropdowns-container">
+                                <div class="allocs">
+                                    <label>Allocation Type</label>
+                                    <select name="alloc-type" id="allocType">
+                                        <option value="Best">Best Fit</option>
+                                        <option value="First">First Fit</option>
+                                        <option value="Worst">Worst Fit</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="num-partitions">
+                                <label for="">No. of Partitions</label>
+                                <input type="number" name="no-of-partitions" id="numOfPartitions">
+                                <span id="partitionCountError" class="error-message"></span>
+                            </div>
+                            <div class="size-partitions">
+                                <label for="">Size per partition</label>
+                                <input type="text" name="partition-size" id="partitionSize" placeholder="e.g. 400,300,240" autocomplete="off">
+                                <span id="partitionSizeError" class="error-message"></span>
+                            </div>
+                            <div class="processes-sizes">
+                                <label for="">Processes</label>
+                                <input type="text" name="process-size" id="processSize" placeholder="e.g. 400,300,240" autocomplete="off">
+                                <span id="processSizeError" class="error-message"></span>
+                            </div>
+                            <div class="buttons">
+                                <button id="submitBtn" onclick="run()">Submit</button>
+                                <button class="clear-btn" onclick="clear()">Clear</button>
+                            </div>
+                        </form>
+                </div>
+            </div>
+            <div class="visualizer">
+                <div class="memory-block" id="memory-block">
+                    <div class="os-block">
+                        <p>OS</p>
+                    </div>
+                    <div class="blocks" id="blocks">
+
+                    </div>
+                </div>
+                <div class="result">
+                    <h2>Allocation Results:</h2><br>
+                    <div id="resultText">Results Show Here</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2023 Mark Buduan. All rights reserved.</p>
+    </footer>
+    <script src="fixed.js"></script>
+</body>
+</html>
