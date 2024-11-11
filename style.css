@@ -25,7 +25,6 @@ nav {
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 1;
     width: 100%;
     display: flex;
     align-items: center;
@@ -38,7 +37,7 @@ nav {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-size: 18px;
+    font-size: 30px;
 }
 
 .navlist {

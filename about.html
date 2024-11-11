@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">Skimata</a>
+        <ul class="navlist">
+            <li><a href="index.html" class="home">Home</a></li>
+            <li><a href="about.html" class="about">About</a></li>
+            <li><a href="members.html" class="members">Members</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="left">
+                <h1 id="hero-h1">What is <br><span class="brand-name">SKIMATA</span>?</h1>
+                
+            </div>
+
+            <div class="visualizer">
+                <div class="title">
+                    <h2>Visualize Allocation Schemes For Memory and CPU</h2>
+                </div>
+                <div class="text">
+                    <p>Skimata, derived from the fusion of 'scheme' and 'mata' (the Filipino word for 'eye'), embodies a powerful visualization
+                    tool designed to illuminate the intricate world of memory and CPU allocation schemes. With an intuitive interface,
+                    Skimata provides users with a dynamic platform to explore and comprehend various allocation strategies, such as fixed
+                    partitions, page replacement policies, priority scheduling, and Shortest Remaining Time. Witness the allocation
+                    processes unfold before your eyes, gaining valuable insights into system efficiency and resource management. Skimata
+                    empowers users to grasp the complexities of these schemes effortlessly, enhancing understanding and facilitating
+                    informed decision-making in the realm of computer system optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <h1 class="alloc-schemes-title">The Allocation Schemes</h1>
+
+    <!--Fixed Partition Section-->
+    <section class="fixed-partition-section">
+        <div class="fixed-partition-container">
+            <div class="left">
+                <h1 id="alloc-h1">Fixed Partition</h1>
+            </div>
+    
+            <div class="visualizer">
+                <div class="title">
+                    <h2>Fixed Partitions and Memory Allocation Methods</h2>
+                </div>
+                <div class="text">
+                    <p>In the context of fixed partitions, which allow for multiprogramming, the main memory's user processes area is divided
+                    into static partitions at system startup. Each job is allocated one contiguous partition using a first-come,
+                    first-served allocation method. Three methods for free space allocation—first-fit, best-fit, and worst-fit—determine how
+                    memory is assigned to new jobs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--FIFO Section-->
+    <section class="fixed-partition-section">
+        <div class="fixed-partition-container">
+            <div class="left">
+                <h1 id="alloc-h1">First In First Out</h1>
+            </div>
+    
+            <div class="visualizer">
+                <div class="title">
+                    <h2>Page Replacement Policies and Concepts</h2>
+                </div>
+                <div class="text">
+                    <p>In the realm of page replacement policies, the selection of the page to be removed plays a pivotal role in system
+                    efficiency. The choice of the page replacement algorithm is crucial, and two widely recognized policies are first-in,
+                    first-out (FIFO) and least recently used (LRU). The FIFO policy operates on the principle that the optimal page for
+                    removal is the one that has been in memory the longest. These page replacement strategies are fundamental to managing
+                    memory resources effectively in a computer system..</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--NP Section-->
+    <section class="fixed-partition-section">
+        <div class="fixed-partition-container">
+            <div class="left">
+                <h1 id="alloc-h1">Non Preemptive Priority Scheduling</h1>
+            </div>
+    
+            <div class="visualizer">
+                <div class="title">
+                    <h2>Managing Processes Based on Priority Numbers</h2>
+                </div>
+                <div class="text">
+                    <p>Priority scheduling involves assigning a priority number (integer) to each process, with the CPU allocated to the
+                    process having the highest priority (where a smaller integer indicates a higher priority). However, a notable challenge in priority scheduling is the NP-Scheduling Problem, where low-priority processes may face
+                    starvation, meaning they might never get the opportunity to execute.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--SRTF Section-->
+    <section class="fixed-partition-section">
+        <div class="fixed-partition-container">
+            <div class="left">
+                <h1 id="alloc-h1">Shortest Remaining Task First</h1>
+            </div>
+    
+            <div class="visualizer">
+                <div class="title">
+                    <h2>The Shortest Remaining Time Scheduling Approach</h2>
+                </div>
+                <div class="text">
+                    <p>Remaining Time is a preemptive version of Shortest Job Next (SJN) scheduling, where the CPU is allocated to the process
+                    closest to completion. In this strategy, a process holding the CPU may be preempted or interrupted if a newer process in
+                    the READY queue has a shorter time to completion. Notably, when processes arrive simultaneously, the system resorts to
+                    Shortest Job Next (SJN) to determine the most efficient allocation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="about.js"></script>
+</body>
+
+</html>

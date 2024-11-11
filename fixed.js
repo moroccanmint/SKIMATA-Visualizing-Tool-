@@ -1,6 +1,7 @@
 
 // Array for partition sizes
 let memoryPartitions = [];
+let memoryPartitionsCopy = [];
 let processes = [];
 let validationFlag = 0;
 
@@ -13,11 +14,14 @@ const allocText = document.getElementById('alloc-h1');
 var submitBtn = document.getElementById('submitBtn');
 
 function runAlgo() {
-    event.preventDefault();
-
     // Change H1 to the selected allocation type
     var selectedAlloc = allocType.options[allocType.selectedIndex].text;
     allocText.innerHTML = selectedAlloc;
+
+    // Get the container .blocks
+    var blocks = document.getElementById('blocks');
+
+    blocks.innerHTML = '';
 
     allocText.classList.add('animate');
 
@@ -27,6 +31,7 @@ function runAlgo() {
 
     // Array for partition sizes
     memoryPartitions = partitionSize.value.split(',').map(Number);
+    memoryPartitionsCopy = [...memoryPartitions]
 
     // Array for partition sizes
     processes = processesSize.value.split(',').map(Number);
@@ -42,19 +47,22 @@ function runAlgo() {
         printAllocation(allocation, "Worst Fit");
     }
 
-    // Get the container .blocks
-    var blocks = document.getElementById('blocks');
-
     // Create a new div
     for (let i = 0; i < noOfPartitions.value; i++) {
         var newDiv = document.createElement('div');
         newDiv.className = 'block';
-        newDiv.textContent = memoryPartitions[i]; // Set the text content of the new div
+        newDiv.textContent = memoryPartitions[i] + "K"; // Set the text content of the new div
         newDiv.style.border = "1px solid #f26a2e";
         // newDiv.style.backgroundColor = "#fff";
         newDiv.style.color = "#fff";
+
+        if (memoryPartitions[i] != memoryPartitionsCopy[i]) {
+            newDiv.style.backgroundColor = "#f09873";
+            newDiv.style.color = "#1f1f1f";
+        }
         // Add the new div to the container
         blocks.appendChild(newDiv);
+
 
         newDiv.offsetHeight;
         newDiv.classList.add('block', 'show');
@@ -68,7 +76,6 @@ function runAlgo() {
     firstDiv.style.borderRadius = "20px 20px 0px 0px";
     lastDiv.style.borderRadius = "0px 0px 20px 20px";
     
-    submitBtn.style.display = "none";  
 }
 
 // First Fit
@@ -154,11 +161,12 @@ function printAllocation(allocation, scheme) {
         }
     }
 
-    resultDiv.innerHTML += "Total Internal Fragment: " + internalFragment + "<br>";
+    resultDiv.innerHTML += "Total Internal Fragment: " + internalFragment + "K" + "<br>";
     resultDiv.style.fontSize = "15px";
     margin = "5px";
 }
 
+// Reset all inputs
 function clear(){
     document.getElementById('alloc-h1').innerHTML = "Fixed Partition";
 
@@ -173,6 +181,7 @@ function clear(){
     processes = [];
 }
 
+// Check if input has a negative value
 function hasNegativeValue(arr) {
     // Use the some method to check if any element is negative
     return arr.some(function (element) {
@@ -180,6 +189,7 @@ function hasNegativeValue(arr) {
     });
 }
 
+// Check if partition size is valid
 function validateCount() {
     var partitionCountError = document.getElementById('partitionCountError');
 
@@ -197,6 +207,7 @@ function validateCount() {
     }
 }
 
+// Check if partition size is valid
 function validateSize() {
     var partitionSizeError = document.getElementById('partitionSizeError');
     memoryPartitions = partitionSize.value.split(',').map(Number);
@@ -223,12 +234,13 @@ function validateSize() {
     }
 }
 
+// Check if process size is valid
 function validateProcess() {
     var processSizeError = document.getElementById('processSizeError');
     processes = processesSize.value.split(',').map(Number);
 
     if (processesSize.value == "") {
-        processSizeError.innerHTML = "Please enter the partition sizes";
+        processSizeError.innerHTML = "Please enter the process sizes";
         processesSize.classList.add('shake');
         return;
         //Check if there is a whitespace
@@ -246,7 +258,9 @@ function validateProcess() {
     }
 }
 
+// Call all validation functions and if they are all valid, run the algorithm
 function run() {
+    validationFlag = 0;
     console.log(validationFlag)
     event.preventDefault();
     validateCount();
@@ -254,11 +268,12 @@ function run() {
     validateProcess();
     if (validationFlag == 3) {
         runAlgo();
-    } else {
-        validationFlag = 0;
     }
 }
 
+
+
+// Pages
 var homeLink = document.querySelectorAll('.home');
 var aboutLink = document.querySelectorAll('.about');
 var membersLink = document.querySelectorAll('.members');
@@ -283,4 +298,6 @@ function pageTransition(link){
 }
 
 pageTransition(homeLink);
+pageTransition(aboutLink);
+pageTransition(membersLink);
 

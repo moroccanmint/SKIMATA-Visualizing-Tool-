@@ -38,7 +38,7 @@ nav {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-size: 18px;
+    font-size: 30px;
 }
 
 .navlist {
@@ -67,6 +67,24 @@ nav {
     align-items: center;
     gap: 2rem;
     box-sizing: border-box;
+}
+
+@media screen and (max-width: 1600px) {
+    .col2 {
+        /* Styles for smaller screens */
+        transform: scale(0.6);
+        /* Adjust the font size to make text smaller */
+        /* Add other styles as needed to make elements smaller */
+        /* padding-right: 5%; */
+    }
+
+    .col {
+        transform: scale(0.8);
+    }
+
+    section {
+        padding: 0;
+    }
 }
 
 section {

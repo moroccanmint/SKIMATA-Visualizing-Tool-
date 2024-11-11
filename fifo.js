@@ -158,3 +158,5 @@ function pageTransition(link) {
 }
 
 pageTransition(homeLink);
+pageTransition(aboutLink);
+pageTransition(membersLink);

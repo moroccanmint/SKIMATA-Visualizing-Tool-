@@ -17,14 +17,6 @@ function runScheduler() {
     const allArrivalTimes = document.getElementById('all_arrival_times').value.split(',').map(Number);
     const allBurstTimes = document.getElementById('all_burst_times').value.split(',').map(Number);
 
-    // if (allArrivalTimes.length !== numProcesses || allBurstTimes.length !== numProcesses) {
-    //     // alert('Please provide arrival and burst times for each process.');
-    //     arrivalTimes.classList.add('shake');
-    //     arrivalTimeError.innerHTML = "Arrival time count does not match no. of processes";
-    //     burstTimeError.classList.add('shake');
-    //     return;
-    // }
-
     ////Validate input for process count
     if (numProcesses == 0) {
         processCountError.innerHTML = "Please enter the number of processes";
@@ -145,11 +137,6 @@ function displayGanttChart(ganttChart) {
     var ganttContainer = document.getElementById('gantt-container');
     ganttContainer.innerHTML = '';
 
-    // if (ganttChart.length === 0) {
-    //     alert('No processes to display in the Gantt chart. Please check your input.');
-    //     return;
-    // }
-
     var table = document.createElement('table');
     table.classList.add('gantt-table');
 
@@ -195,11 +182,6 @@ function displayTable(processes) {
 	  labelRow.style.fontFamily = 'Montserrat, sans-serif';
     labelRow.innerHTML = `<strong>Table Summary: </strong>`;
     resultContainer.appendChild(labelRow);
-
-    // if (processes.length === 0) {
-    //     alert('No processes to display in the table. Please check your input.');
-    //     return;
-    // }
 
     processes.sort((a, b) => a.process_id - b.process_id);
 
@@ -260,83 +242,7 @@ function hasNegativeValue(arr) {
     });
 }
 
-function validateCount() {
-    var num_processes = document.getElementById('num_processes');
-    var processCountError = document.getElementById('processCountError');
-
-    if (num_processes.value == "") {
-        processCountError.innerHTML = "Please enter the number of processes";
-        num_processes.classList.add('shake');
-        return;
-    } else if (num_processes.value <= 0) {
-        processCountError.innerHTML = "Please enter a positive number";
-        num_processes.classList.add('shake');
-        return;
-    } else {
-        processCountError.innerHTML = "";
-        validationFlag++;
-    }
-}
-
-function validateArrivalTime() {
-    var num_processes = document.getElementById('num_processes');
-    var arrivalTimeError = document.getElementById('arrivalTimeError');
-    var allArrivalTimes = document.getElementById('all_arrival_times');
-    var arrivalTimeArr = allArrivalTimes.value.split(',').map(Number);
-
-    if (allArrivalTimes.value == "") {
-        arrivalTimeError.innerHTML = "Please enter the arrival times";
-        allArrivalTimes.classList.add('shake');
-        return;
-    } else if (arrivalTimeArr.length != num_processes.value) {
-        arrivalTimeError.innerHTML = "Arrival time count does not match no. of processes";
-        allArrivalTimes.classList.add('shake');
-        return;
-    } else if (/\s/.test(allArrivalTimes.value)) {
-        arrivalTimeError.innerHTML = "Please remove spaces between arrival times";
-        allArrivalTimes.classList.add('shake');
-        return;
-    } else if (hasNegativeValue(arrivalTimeArr)) {
-        arrivalTimeError.innerHTML = "Please enter positive arrival time";
-        allArrivalTimes.classList.add('shake');
-        return;
-    } else {
-        arrivalTimeError.innerHTML = "";
-        validationFlag++;
-    }
-}
-
-function validateBurstTime() {
-    var processSizeError = document.getElementById('processSizeError');
-    processes = processesSize.value.split(',').map(Number);
-
-    if (processesSize.value == "") {
-        processSizeError.innerHTML = "Please enter the partition sizes";
-        processesSize.classList.add('shake');
-        return;
-        //Check if there is a whitespace
-    } else if (/\s/.test(processesSize.value)) {
-        processSizeError.innerHTML = "Please remove spaces between process sizes";
-        processesSize.classList.add('shake');
-        return;
-    } else if (hasNegativeValue(processes)) {
-        processSizeError.innerHTML = "Please enter positive process sizes";
-        processesSize.classList.add('shake');
-        return;
-    } else {
-        processSizeError.innerHTML = "";
-        validationFlag++;
-    }
-}
-
-function runValidation() {
-    console.log(validationFlag);
-    event.preventDefault();
-    validateCount();
-    validateSize()
-}
-
-
+// Pages
 var homeLink = document.querySelectorAll('.home');
 var aboutLink = document.querySelectorAll('.about');
 var membersLink = document.querySelectorAll('.members');
@@ -361,3 +267,5 @@ function pageTransition(link) {
 }
 
 pageTransition(homeLink);
+pageTransition(aboutLink);
+pageTransition(membersLink);
